@@ -1,15 +1,23 @@
-package com.discoid.weather.fiveday
+package com.discoid.weather.fiveday.city
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.discoid.weather.fiveday.R
+import com.discoid.weather.fiveday.model.Weather
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_weather.*
+import javax.inject.Inject
 
-class WeatherActivity : AppCompatActivity() {
+class CityActivity : AppCompatActivity(), ICityPresenterView {
+
+    @Inject
+    lateinit var cityPresenter : ICityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
         setSupportActionBar(toolbar)
@@ -34,5 +42,23 @@ class WeatherActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun display(weather: Weather?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cityPresenter.start(this, CITY_CODE);
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cityPresenter.close()
+    }
+
+    companion object {
+        val CITY_CODE = CityCodes.getDefaultCity()
     }
 }
