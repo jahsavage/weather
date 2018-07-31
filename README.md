@@ -4,7 +4,7 @@ The task has been performed using a mixture of Java and Kotlin mainly since I us
 
 All the plumbing for getting the data to the UI is legit
 
-The UI bit was time consuming so several shortcuts have beeen made for fun.
+The UI bit was time consuming so several shortcuts have been made for fun.
 
 Further work is required to understand how to map the weather to an icon or understand the ones from the API
 
