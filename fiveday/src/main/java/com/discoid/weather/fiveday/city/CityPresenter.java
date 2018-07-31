@@ -24,6 +24,11 @@ public class CityPresenter implements ICityPresenter {
     }
 
     @Override
+    public void updateCityCode(Integer cityCode) {
+        fetchCityWeather(cityCode);
+    }
+
+    @Override
     public void close() {
         compositeDisposable.clear();
         weatherInteractor = null;
@@ -36,6 +41,7 @@ public class CityPresenter implements ICityPresenter {
     }
 
     private void show(Weather weather) {
+
         Timber.d("Receiver weather for %s", weather.getName());
         view.display(weather);
     }

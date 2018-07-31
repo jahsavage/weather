@@ -1,0 +1,6 @@
+package com.discoid.weather.fiveday.city;
+
+public enum WeatherType {
+    SUNNY, SUNNY_WITH_RAIN, STORMS, SUNNY_AND_CLOUDY, SNOW, CLOUDY_WITH_HEAVY_RAIN, SHOWERS, CLOUDY_WITH_LIGHT_RAIN, SUNNY_WITH_RAIN_CLOUDS
+}
+
